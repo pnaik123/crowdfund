@@ -1,0 +1,35 @@
+security:
+  jwt:
+    token:
+      secret-key: ${SECRETE_KEY:my-secret-key}
+
+spring:
+  datasource:
+    driver-class-name: ${MY_SQL_JDBC_DRIVER:}
+    url: ${MY_SQL_URL:jdbc:}
+    username: 
+    password: 
+  jpa:
+    hibernate:
+      ddl-auto: ${AUTO_UPDATE:update}
+      
+token:
+  expiry:
+    time: ${TOKEN_EXIRY:3600000}
+    
+razorpay:
+  client:
+    secret: 
+    id: 
+origin:
+  allowed: ${URL_ALLOWED:http://localhost:3000}
+  
+endpoint:
+  login: api/auth/login
+  register: api/auth/register
+
+
+
+
+      
+
