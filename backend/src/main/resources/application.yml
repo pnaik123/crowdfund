@@ -1,12 +1,35 @@
-security.jwt.token.secret-key: my-secret-key
+security:
+  jwt:
+    token:
+      secret-key: ${SECRETE_KEY:my-secret-key}
 
 spring:
   datasource:
-    driver-class-name: org.postgresql.Driver
-    url: jdbc:postgresql://localhost:5432/backenddb
-    username: backend
-    password: backend
+    driver-class-name: ${MY_SQL_JDBC_DRIVER:}
+    url: ${MY_SQL_URL:jdbc:}
+    username: 
+    password: 
   jpa:
-    database-platform: org.hibernate.dialect.PostgreSQLDialect
     hibernate:
-      ddl-auto: create
+      ddl-auto: ${AUTO_UPDATE:update}
+      
+token:
+  expiry:
+    time: ${TOKEN_EXIRY:3600000}
+    
+razorpay:
+  client:
+    secret: 
+    id: 
+origin:
+  allowed: ${URL_ALLOWED:http://localhost:3000}
+  
+endpoint:
+  login: api/auth/login
+  register: api/auth/register
+
+
+
+
+      
+
